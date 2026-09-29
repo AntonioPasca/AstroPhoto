@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">AstroPhoto</string>
+
+
+    <string name="title_activity_photo">PhotoActivity</string>
+    <string name="title_activity_video">VideoActivity</string>
+    <string name="title_activity_stacker">StackerActivity</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+    <string name="title_activity_info">InfoActivity</string>
+    <string name="title_activity_advanced">AdvancedActivity</string>
+</resources>
