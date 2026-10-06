@@ -16,6 +16,7 @@
 package com.pascagames.astrophoto
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -32,17 +33,9 @@ import androidx.compose.runtime.setValue
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
-import android.graphics.Bitmap
-import android.util.Log
-//import androidx.camera.video.Recording
-//import androidx.camera.view.LifecycleCameraController
-//import androidx.camera.view.video.AudioConfig
 import androidx.compose.foundation.background
 import androidx.compose.runtime.mutableStateOf
-import androidx.lifecycle.compose.LocalLifecycleOwner
-
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.text.font.FontWeight
@@ -93,11 +86,11 @@ class VideoActivity : ComponentActivity() {
     // ----------------------------------------------------------------------
     fun settings() {
 
-        /*val intent = Intent(this@VideoActivity, SettingsActivity::class.java)
+        val intent = Intent(this@VideoActivity, SettingsActivity::class.java)
         val bundle = Bundle()
         bundle.putInt("SETTINGS_INDEX", SETTINGS_VIDEO_INDEX)
         intent.putExtra("activity_data", bundle)
-        startActivity(intent)*/
+        startActivity(intent)
     }
 
     // ----------------------------------------------------------------------
@@ -106,73 +99,6 @@ class VideoActivity : ComponentActivity() {
     @SuppressLint("UnrememberedMutableState")
     @Composable
     fun MainScreen(modifier: Modifier = Modifier) {
-
-        Log.v(TAG, "VA_1")
-
-        val context = LocalContext.current
-       // val controller = cameraLib.rememberCameraController(context)
-        val lifecycleOwner = LocalLifecycleOwner.current
-        var startDelayedVideo by remember {mutableStateOf(false)}
-        var showVideoProgress by remember {mutableStateOf(false)}
-        var showStartVideoMsg by remember {mutableStateOf(false)}
-        val focusPeakingBitmap = mutableStateOf<Bitmap?>(null)
-
-        Log.v(TAG, "VA_2")
-        val permissionsGranted = getAudioPermission() && getCameraPermission()
-        val granted = getAudioPermission()
-
-        Log.v(TAG, "VA_3")
-        /*if (startDelayedVideo) {
-
-            StartDelayedVideo(
-                controller = controller,
-                permissionsGranted,
-                onRecStarted = { showStartVideoMsg = true },
-                onRecInProgress = {
-                    startDelayedVideo = false
-                    showVideoProgress = true
-                },
-                onRecEnded = {
-                    showVideoProgress = false
-                }
-            )
-        }
-
-        LaunchedEffect(Unit) {
-            controller.bindToLifecycle(lifecycleOwner)
-        }*/
-
-        Log.v(TAG, "VA_4")
-        Scaffold(
-            bottomBar = {
-                BottomBar(
-                    onVideo = {startDelayedVideo = true}
-               )
-            }
-        ) { innerPadding ->
-
-            Box(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(innerPadding)
-            ) {
-                /*cameraLib.CameraPreview(
-                    controller,
-                    modifier = Modifier.fillMaxSize(),
-                    focusPeakingBitmap = focusPeakingBitmap.value
-                )*/
-
-                if (showStartVideoMsg) {
-                    CustomToast(
-                        "REC Started",
-                    )
-                }
-
-                if (showVideoProgress) {
-                    ShowRecTime()
-                }
-            }
-        }
     }
 
     // ----------------------------------------------------------------------

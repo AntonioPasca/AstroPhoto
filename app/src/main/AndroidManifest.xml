@@ -31,7 +31,15 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".PhotoActivity"
+            android:exported="false"
+            android:label="@string/title_activity_info" />
+        <activity
             android:name=".VideoActivity"
+            android:exported="false"
+            android:label="@string/title_activity_info" />
+        <activity
+            android:name=".SettingsActivity"
             android:exported="false"
             android:label="@string/title_activity_info" />
         <activity

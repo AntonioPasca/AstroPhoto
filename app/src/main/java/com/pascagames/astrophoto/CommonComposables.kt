@@ -15,6 +15,7 @@
 // --------------------------------------------------------------------
 //  UI Compose Components
 //
+//      fun AstroTheme(content: @Composable () -> Unit)
 //      fun CustomToast(message: String, duration: Long = 1500L)
 //      fun <T> DropdownSelector(items: List<T>, selectedItem: T?,
 //                               onItemSelected: (T) -> Unit,
@@ -64,6 +65,7 @@ import androidx.compose.material3.SwitchDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.surfaceColorAtElevation
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -82,6 +84,28 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.zIndex
 import kotlinx.coroutines.delay
+
+// --------------------------------------------------------------------
+// AstroTheme
+// --------------------------------------------------------------------
+@Composable
+fun AstroTheme(content: @Composable () -> Unit) {
+    val darkColors = darkColorScheme(
+        primary = Color(0xFFFF3B3B),
+        secondary = Color(0xFFFF6B6B),
+        background = Color(0xFF0A0A0A),
+        surface = Color(0xFF111111),
+        onPrimary = Color.Black,
+        onBackground = Color.White,
+        onSurface = Color.White
+    )
+
+    MaterialTheme(
+        colorScheme = darkColors,
+        typography = MaterialTheme.typography,
+        content = content
+    )
+}
 
 // --------------------------------------------------------------------
 // CustomToast

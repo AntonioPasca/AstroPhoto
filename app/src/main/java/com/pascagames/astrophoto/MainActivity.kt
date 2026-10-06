@@ -7,7 +7,7 @@
 //
 // Author:      Antonio Pascarella
 //
-// Version:     Rel. 0.2.0
+// Version:     Rel. 0.2.1
 //
 // Date:        September 2026
 //
@@ -40,9 +40,8 @@ import androidx.compose.ui.unit.sp
 
 import com.pascagames.astrophoto.ui.theme.AstroPhotoTheme
 
-
 const val APP_NAME = "AstroPhoto 2"
-const val VERSION =  "Ver 0.2.0"
+const val VERSION =  "Ver 0.2.1"
 const val TAG = "PHOTO"
 
 // --------------------------------------------------------------------------
@@ -71,8 +70,8 @@ class MainActivity : ComponentActivity() {
     // ----------------------------------------------------------------------
     fun callPhotoActivity() {
 
-        //val intent = Intent(this@MainActivity, PhotoActivity::class.java)
-        //startActivity(intent)
+        val intent = Intent(this@MainActivity, PhotoActivity::class.java)
+        startActivity(intent)
     }
 
     // ----------------------------------------------------------------------
